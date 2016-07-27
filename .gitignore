@@ -1,0 +1,12 @@
+.idea/
+*.iml
+design/*.*
+design/
+.sass-cache/
+.DS_Store
+node_modules/*
+.module-cache
+npm-debug.log
+.ftppass
+*.js.map
+*.css.map
