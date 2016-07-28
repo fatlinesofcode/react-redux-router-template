@@ -1,6 +1,9 @@
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
   context: __dirname,
   entry: {
+    bootstrap : 'bootstrap-loader/extractStyles',
     jsx: "./src/index.jsx",
     css: "./src/main.css",
     html: "./src/index.html",
@@ -25,7 +28,7 @@ module.exports = {
       { test: /\.html$/, loader: "file?name=[name].[ext]" },
       { test: /\.css$/, loader: "file?name=[name].[ext]" },
       { test: /\.svg$/,  loader: 'svg-inline' },
-      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ["react-hot","babel-loader"]},
+      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ["babel-loader"]},
       { test: /\.scss$/, loader: 'style!css?localIdentName=[path][name]--[local]!postcss-loader!sass'},
       { test: /\.png$/, loader: 'url?limit=10000&mimetype=image/png'},
       { test: /\.jpg/, loader: 'file?name=[name].[ext]'}
@@ -37,5 +40,6 @@ module.exports = {
   },
   eslint: {
     configFile: './.eslintrc'
-  },
+  }, 
+    plugins: [new ExtractTextPlugin('bundle.css')]
 };

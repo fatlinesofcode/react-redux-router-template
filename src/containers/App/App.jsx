@@ -5,15 +5,10 @@ import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import Header from '../../components/Header/index'
 import './styles/styles.scss';
 
-@connect( state => state )
-
-export class App extends Component {
+class App extends Component {
     componentDidMount() {
     }
    
-
-
-
     render() {
         return (
             <section className="app-wrapper">
@@ -35,7 +30,9 @@ export class App extends Component {
         );
     }
 }
-
+export default connect(
+    state => state,
+)(App);
 // export default connect(
 //     state => state,
 //     dispatch => {
